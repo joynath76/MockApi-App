@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c)2014 ESQ Management Solutions Pvt Ltd. All Rights Reserved.
+
+  Permission to use, copy, modify, and distribute this software requires
+  a signed licensing agreement.
+
+  IN NO EVENT SHALL ESQ BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL,
+  INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, ARISING OUT OF
+  THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF ESQ HAS BEEN ADVISED
+  OF THE POSSIBILITY OF SUCH DAMAGE. ESQ SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+  FITNESS FOR A PARTICULAR PURPOSE.
+-->
+<configuration>
+
+    <property name="LOGDIR" value="./logs" />
+    <property name="PATTERN" value="%d{HH:mm:ss.SSS} %-5level [%thread] %logger{32} - %msg%n" />
+
+    <appender name="APPENDER-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	  
+        <file>${LOGDIR}/jbpf-app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGDIR}/jbpf.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>30MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APPENDER-CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APPENDER-ANALYSIS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGDIR}/request-analysis.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGDIR}/request-analysis.log.%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- <maxFileSize>${MAX_FILE_SIZE}</maxFileSize> -->
+                <maxFileSize>30MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>10</maxHistory>
+            <!-- <maxHistory>${MAX_HISTORY}</maxHistory> -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.springframework.web" level="ERROR" />
+    <logger name="com.microsoft.sqlserver" level="ERROR" />
+    <logger name="org.apache" level="error" />
+    <logger name="org.eclipse" level="error" />
+    <logger name="com.zaxxer.hikari" level="error"></logger>
+    <!--<logger name="org.springframework.web.servlet" level="error"></logger>-->
+    <logger name="org.hibernate.validator.internal" level="error"></logger>
+    <logger name="com.retailwave.rwos.rbac.config.CommonReqResFilter" level="debug">
+        <appender-ref ref="APPENDER-ANALYSIS" />
+    </logger>
+    <root level="DEBUG">
+        <appender-ref ref="APPENDER-FILE" />
+        <appender-ref ref="APPENDER-CONSOLE" />
+    </root>
+
+</configuration>
