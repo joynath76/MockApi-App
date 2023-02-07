@@ -22,7 +22,10 @@ public class MockApiService {
     
     @Autowired
     private MockApiRepo mockApiRepo;
-    
+
+    public List<MockApi> findAllEndPoints(){
+        return mockApiRepo.findAll();
+    }
     public List<MockApi> findAllEndPointByApiCollection(String apiCollection){
         return mockApiRepo.findByApiCollection(apiCollection);
     }

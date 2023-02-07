@@ -32,21 +32,27 @@ public class MockApiRest extends AbstractRest{
     
     @Autowired
     private MockApiService mockApiService;
-    
+
     @GetMapping("/{apiCollection}")
-    public Response getExistingEndPoints(@PathVariable("apiCollection") String apiCollection) {
+    public Response getEndPointsByCollection(@PathVariable("apiCollection") String apiCollection) {
         List<MockApi> mockApis = mockApiService.findAllEndPointByApiCollection(apiCollection);
         Response.Builder response = successResponseBuilder().data(mockApis);
         return response.build();
     }
-    
+    @GetMapping
+    public Response getAllEndPoints() {
+        List<MockApi> mockApis = mockApiService.findAllEndPoints();
+        Response.Builder response = successResponseBuilder().data(mockApis);
+        return response.build();
+    }
+
     @PostMapping
     public Response create(@RequestBody MockApi mockApi) {
         mockApi = mockApiService.createMockApi(mockApi);
         Response.Builder response = successResponseBuilder().data(mockApi);
         return response.build();
     }
-    
+
     @PutMapping
     public Response update(@RequestBody MockApi mockApi) {
         mockApi = mockApiService.updateMockApi(mockApi);
