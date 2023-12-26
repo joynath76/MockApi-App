@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.work.jbpf.util;
+package com.work.mock.api.util;
 
 import java.util.Date;
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.work.jbpf.config;
+package com.work.mock.api.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;

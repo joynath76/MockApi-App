@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.work.jbpf.repo;
+package com.work.mock.api.repo;
 
-import com.work.jbpf.entity.MockApi;
-import com.work.jbpf.entity.MockApiId;
+import com.work.mock.api.entity.MockApi;
+import com.work.mock.api.entity.MockApiId;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

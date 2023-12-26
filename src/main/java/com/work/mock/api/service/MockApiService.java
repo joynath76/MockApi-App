@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.work.jbpf.service;
+package com.work.mock.api.service;
 
-import com.work.jbpf.entity.MockApi;
-import com.work.jbpf.entity.MockApiId;
-import com.work.jbpf.repo.MockApiRepo;
+import com.work.mock.api.entity.MockApi;
+import com.work.mock.api.entity.MockApiId;
+import com.work.mock.api.repo.MockApiRepo;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

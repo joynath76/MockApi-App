@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.work.jbpf.config;
+package com.work.mock.api.config;
 
 import java.io.IOException;
 import javax.servlet.FilterChain;
@@ -29,6 +29,10 @@ public class MockApiReqResFilter extends OncePerRequestFilter{
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         response.setHeader("Access-Control-Max-Age", "3600");
+        long startTime = System.currentTimeMillis();
         filterChain.doFilter(request, response);
+        long duration = System.currentTimeMillis() - startTime;
+        log.debug("Total server processing time {}ms", duration);
+        response.setHeader("Server-Timing", "total;dur=" + duration);
     }
 }

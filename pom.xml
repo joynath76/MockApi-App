@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.work</groupId>
-    <artifactId>jbpf</artifactId>
+    <artifactId>MockAPI</artifactId>
     <version>0.0.1</version>
-    <name>jbpf</name>
-    <description>Joynath Barman portfolio backend</description>
+    <name>MockAPI</name>
+    <description>An Application that is used to manage and export mock apis</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

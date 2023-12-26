@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.work.jbpf.config;
+package com.work.mock.api.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.work.jbpf.entity.MockApi;
-import com.work.jbpf.service.MockApiService;
-import com.work.jbpf.util.Response;
-import java.io.PrintWriter;
+import com.work.mock.api.entity.MockApi;
+import com.work.mock.api.service.MockApiService;
+import com.work.mock.api.util.Response;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
